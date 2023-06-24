@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<conversations>
+  <conversation ID="QODENHANCED_Kreek">
+    <node ID="Start">
+      <text>*gwrrp!*
+        
+Livendrink.  &amp;w*rrk.*
+
+&amp;yBe Kreek, fancyfisher awandering!</text>
+      <choice GotoID="Meet">Nice to meet you... Kreek?</choice>
+      <choice GotoID="Svardym">Are you svardym?</choice>
+      <choice GotoID="Fisher">Why do you have all this fishing gear?</choice>
+      <choice GotoID="End">Live and drink, =pronouns.formalAddressTerm=.</choice>
+    </node>
+
+    <node ID="Meet">
+      <text> &amp;w*excited chirp*
+        
+&amp;yYesnice, meet!
+
+Be searching, fishcatching. Kreek enjoysmeet. </text>
+      <choice GotoID="Svardym">Are you svardym?</choice>
+      <choice GotoID="Fisher">Why do you have all this fishing gear?</choice>
+      <choice GotoID="End">Live and drink, =pronouns.formalAddressTerm=.</choice>
+    </node>
+
+    
+    <node ID="Svardym">
+      <text>Ayeh.  &amp;w*pensive croak.*
+
+&amp;yBe vardy, isnice. Hatchies be angry, unlikely I be. Be talkingly. Fastestalkingly!  &amp;w*she grins proudly.*
+
+&amp;yI wanderfar on she journreysearch. Pallyreef fishes benot enough.</text>
+      <choice GotoID="Fisher">Why do you have all this fishing gear?</choice>
+      <choice GotoID="Search">What are you searching for?</choice>
+      <choice GotoID="End">Live and drink, =pronouns.formalAddressTerm=.</choice>
+    </node>
+
+    <node ID="Fisher">
+      <text>For fishings, silly hatchbrain!
+      
+      Must catchings, wandersearching for the perfectfish. For... she.  &amp;w*embarassed gurgle.*</text>
+      <choice GotoID="Search">What are you searching for?</choice>
+      <choice GotoID="End">Live and drink, =pronouns.formalAddressTerm=.</choice>
+    </node>
+
+    <node ID="Search">
+      <text> &amp;w*cheeb!*
+      
+      &amp;yI search for perfectfish I can givings to she. Shimmershiny she livings in Freehold be! Krka, poth carry of my heart, be. Givings her perfectfish. She talkings goodnot be. Kreek searchings for giftgivings.
+      
+      But woebe! Searchbe of failings. Needfind slimysticky &amp;rmucarp&amp;y. Eatings coatsmouth, spit strong, make be. Notneeds tasty be, she be lovings. </text>
+      <!-- <choice GotoID="End" StartQuest="A Gift For The Deep">You will be, friend. You will be.</choice> -->
+      <choice GotoID="End">Live and drink, =pronouns.formalAddressTerm=.</choice>
+    </node>
+
+  </conversation>
+</conversations>

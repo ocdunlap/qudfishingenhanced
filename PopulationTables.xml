@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<populations>
+    <population Name="QODENHANCED_KreekInventory">
+      <group Name="Items" Style="pickeach">
+        <object Blueprint="Goggles" />
+        <object Blueprint="Cloth Overalls" />
+        <object Blueprint="FishingRod" />
+      </group>
+    </population>
+</populations>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<quests>
+  <quest Name="Catch a Mucarp for Kreek." Level="3"
+       Accomplishment="You caught a mucarp for Kreek."
+       Hagiograph="=name= acquired a slimy gift for a lovesick svardym."
+       HagiographCategory="Trysts">
+
+    <step Name="Catch a Mucarp" XP="0">
+      <text>Catch a mucarp.</text>
+    </step>
+
+    <step Name="Return to Kreek" XP="650">
+      <text>Return to Kreek with the mucarp.</text>
+    </step>
+    </quest>
+</quests>
