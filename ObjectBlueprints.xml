@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <objects>
   <object Name="QODENHANCED_Kreek" Inherits="Svardym Scrounge">
-    <part Name="QODENHANCED_Kreek"/>
+    <!-- <part Name="QODENHANCED_Kreek"/> -->
     <part Name="Render" DisplayName="Kreek" Tile="creatures/Kreek.png" ColorString="&amp;Y" TileColor="&amp;g" DetailColor="O" RenderString="f" />
     <part Name="Brain" Wanders="false" Factions="Svardym-100" />
     <part Name="Description" Short="Young and fluttering with the crackling remnants of hatchling curiosity, her gaze darts asynchronously between you and objects of interest around her. Her webbed hands, curiously calloused for her age, pull at loose threads of her overalls. The bursting pack at her back struggles to hide various bits of tackle and shimmering twine." />

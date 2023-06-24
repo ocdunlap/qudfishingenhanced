@@ -1,10 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <conversations>
   <conversation ID="QODENHANCED_Kreek">
-    <node ID="Start">
-      <text>*gwrrp!*
+
+
+    <start IfHaveActiveQuest="Catch a Mucarp for Kreek">
+      <text>
+        Friemd returings! Mucarp for Krka, givingsbe?
+      </text>
+      <choice GotoID="HasMucarp" IfHaveBlueprint="Mucarp" TakeItem="Mucarp">
+        <text>Yes, here it is.</text>
+        <part Name="ReceiveItem" Blueprints="Laser Rifle" />
+        <part Name="QuestHandler" QuestID="Catch a Mucarp for Kreek" Action="Complete" />
+      </choice>
+      <choice GotoID="WhereMucarp">How do I catch mucarp?</choice>
+      <choice GotoID="End">Not yet.</choice>
+    </start>
+
+    <node ID="HasMucarp">
+      <text>&amp;w*geep!*
         
-Livendrink.  &amp;w*rrk.*
+&amp;yYougivingsme! Thankayou! She will leapingsbe. Happenyings! 
+
+ &amp;wShe seems to struggle to find the words to thank you.</text>
+      <choice GotoID="End">Live and drink, =pronouns.formalAddressTerm=.</choice>
+    </node>
+
+    <node ID="WhereMucarp">
+      <text>Mucarp plentysbe, but slippybe. Graba rod, wait, pullbig. &amp;wShe nods sagely, satisfied with her advice.</text>
+      <choice GotoID="End">Live and drink, =pronouns.formalAddressTerm=.</choice>
+    </node>
+
+    <node ID="Start">
+      <text>&amp;w*gwrrp!*
+        
+&amp;yLivendrink.  &amp;w*rrk.*
 
 &amp;yBe Kreek, fancyfisher awandering!</text>
       <choice GotoID="Meet">Nice to meet you... Kreek?</choice>
@@ -28,11 +57,11 @@ Be searching, fishcatching. Kreek enjoysmeet. </text>
     <node ID="Svardym">
       <text>Ayeh.  &amp;w*pensive croak.*
 
-&amp;yBe vardy, isnice. Hatchies be angry, unlikely I be. Be talkingly. Fastestalkingly!  &amp;w*she grins proudly.*
+&amp;yBe vardy, isnice. Hatchies be angry, unlikely I be. Be talkingly. Fastestalkingly!  &amp;wShe grins proudly.
 
 &amp;yI wanderfar on she journreysearch. Pallyreef fishes benot enough.</text>
       <choice GotoID="Fisher">Why do you have all this fishing gear?</choice>
-      <choice GotoID="Search">What are you searching for?</choice>
+      <choice IfNotHaveQuest="Catch a Mucarp for Kreek" GotoID="Search">What are you searching for?</choice>
       <choice GotoID="End">Live and drink, =pronouns.formalAddressTerm=.</choice>
     </node>
 
@@ -40,7 +69,7 @@ Be searching, fishcatching. Kreek enjoysmeet. </text>
       <text>For fishings, silly hatchbrain!
       
       Must catchings, wandersearching for the perfectfish. For... she.  &amp;w*embarassed gurgle.*</text>
-      <choice GotoID="Search">What are you searching for?</choice>
+      <choice IfNotHaveQuest="Catch a Mucarp for Kreek" GotoID="Search">What are you searching for?</choice>
       <choice GotoID="End">Live and drink, =pronouns.formalAddressTerm=.</choice>
     </node>
 
@@ -50,7 +79,7 @@ Be searching, fishcatching. Kreek enjoysmeet. </text>
       &amp;yI search for perfectfish I can givings to she. Shimmershiny she livings in Freehold be! Krka, poth carry of my heart, be. Givings her perfectfish. She talkings goodnot be. Kreek searchings for giftgivings.
       
       But woebe! Searchbe of failings. Needfind slimysticky &amp;rmucarp&amp;y. Eatings coatsmouth, spit strong, make be. Notneeds tasty be, she be lovings. </text>
-      <!-- <choice GotoID="End" StartQuest="A Gift For The Deep">You will be, friend. You will be.</choice> -->
+      <choice GotoID="End" StartQuest="Catch a Mucarp for Kreek">I'll catch a mucarp for you.</choice>
       <choice GotoID="End">Live and drink, =pronouns.formalAddressTerm=.</choice>
     </node>
 
