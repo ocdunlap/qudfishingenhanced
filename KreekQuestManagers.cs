@@ -59,4 +59,56 @@ namespace XRL.World.QuestManagers
             return base.FireEvent(E);
         }
     }
+
+    [Serializable]
+    public class QodEnhanced_BringKreekCorrocandus : QuestManager
+    {
+
+        public class QodEnhanced_BringKreekCorrocandusSystem : IGameSystem
+        {
+            public override void PlayerTook(GameObject GO)
+            {
+                 if( GO != null && GO.Blueprint == "Corrocandus" )
+                {
+                    XRL.Core.XRLCore.Core.Game.FinishQuestStep("Catch a Corrocandus for Kreek", "Catch a Corrocandus");
+                }
+            }
+        }
+        public override void OnQuestAdded()
+        {
+            The.Player.Inventory.ForeachObject(delegate(GameObject GO)
+            {
+                 if( GO != null && GO.Blueprint == "Corrocandus" )
+                {
+                    // Could potentially check for the carp's size, etc here before completing step
+                    XRL.Core.XRLCore.Core.Game.FinishQuestStep("Catch a Corrocandus for Kreek", "Catch a Corrocandus");
+                    return false;
+                }
+                return true;
+            });
+ 
+            The.Game.AddSystem(new QodEnhanced_BringKreekCorrocandusSystem());
+        }
+ 
+        public override void OnQuestComplete()
+        {
+            IComponent<GameObject>.ThePlayer.RemovePart(this);
+		    The.Game.FlagSystemsForRemoval(typeof(QodEnhanced_BringKreekCorrocandusSystem));
+        }
+ 
+        public override bool FireEvent(Event E)
+        {
+            if (E.ID == "Took")
+            {
+                GameObject GO = E.GetGameObjectParameter("Object");
+                if(GO != null && GO.Blueprint == "Corrocandus" )
+                {
+                    // Could potentially check for the carp's size, etc here before completing step
+                    XRL.Core.XRLCore.Core.Game.FinishQuestStep("Catch a Corrocandus for Kreek", "Catch a Corrocandus");
+                }
+            }
+ 
+            return base.FireEvent(E);
+        }
+    }
 }

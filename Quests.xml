@@ -13,4 +13,32 @@
       <text>Return to Kreek with your catch.</text>
     </step>
     </quest>
+
+    <quest Name="Catch a Corrocandus for Kreek" Level="10" Manager="QodEnhanced_BringKreekCorrocandus" 
+       Accomplishment="You caught a corrocandus for Kreek."
+       Hagiograph="=name= acquired a crunchy coral for a lovesick svardym."
+       HagiographCategory="Trysts">
+
+    <step Name="Catch a Corrocandus" XP="0">
+      <text>Catch a corrocandus. A colorful curiosity.</text>
+    </step>
+
+    <step Name="Return to Kreek" XP="1200">
+      <text>Return to Kreek with your catch.</text>
+    </step>
+    </quest>
+
+    <quest Name="Catch a Rare Fish for Kreek" Level="15" Manager="QodEnhanced_BringKreekRareFish" 
+       Accomplishment="You caught a remarkable fish for Kreek."
+       Hagiograph="=name= acquired a perfect specimen for a lovesick svardym."
+       HagiographCategory="Trysts">
+
+    <step Name="Catch a Rare Fish" XP="0">
+      <text>Catch a rare fish. May your hook be true.</text>
+    </step>
+
+    <step Name="Return to Kreek" XP="3500">
+      <text>Return to Kreek with your catch.</text>
+    </step>
+    </quest>
 </quests>

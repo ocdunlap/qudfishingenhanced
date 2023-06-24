@@ -2,6 +2,40 @@
 <conversations>
   <conversation ID="QODENHANCED_Kreek">
 
+    <start IfHaveActiveQuest="Catch a Corrocandus for Kreek">
+      <text>
+        Friemd returings! Corrocandus for Krka, givingsbe?
+      </text>
+      <choice GotoID="HasCorrocandus" IfHaveBlueprint="Corrocandus" TakeItem="Corrocandus">
+        <text>Yes, here it is.</text>
+        <part Name="ReceiveItem" Blueprints="Laser Rifle" />
+        <part Name="QuestHandler" QuestID="Catch a Corrocandus for Kreek" Action="Complete" />
+      </choice>
+      <choice GotoID="WhereCorrocandus">How do I catch corrocandus?</choice>
+      <choice GotoID="End">Not yet.</choice>
+    </start>
+
+        <node ID="HasCorrocandus">
+      <text>&amp;w*gwrree!*
+        
+&amp;yLovelygives! Is bigcrunchy, colorshape. Ayeh!
+
+ &amp;wShe does a happy hop in place, her pack jingling. &amp;yBe givings to fisherfriend, athankayou.</text>
+      <choice GotoID="End">Live and drink, =pronouns.formalAddressTerm=.</choice>
+    </node>
+
+    <node ID="WhereCorrocandus">
+      <text>&amp;w*reep*&amp;y Be knowings this. Corrocandus not everywherebe. If so, they rarebe. But behearings they manybe in bigdeep waters.</text>
+      <choice GotoID="End">Live and drink, =pronouns.formalAddressTerm=.</choice>
+    </node>
+
+    <start IfFinishedQuest="Catch a Mucarp for Kreek" IfNotHaveActiveQuest="Catch a Corrocandus for Kreek">
+      <text>
+        Friemdfisher! Searchbe of failings for corrocandus. Rethinkings help, yoube?
+      </text>
+      <choice GotoID="End" StartQuest="Catch a Corrocandus for Kreek">I'll catch a corrocandus for you.</choice>
+      <choice GotoID="End">Not interested. Live and drink.</choice>
+    </start>
 
     <start IfHaveActiveQuest="Catch a Mucarp for Kreek">
       <text>
@@ -9,7 +43,7 @@
       </text>
       <choice GotoID="HasMucarp" IfHaveBlueprint="Mucarp" TakeItem="Mucarp">
         <text>Yes, here it is.</text>
-        <part Name="ReceiveItem" Blueprints="Laser Rifle" />
+        <!-- <part Name="ReceiveItem" Blueprints="Laser Rifle" /> -->
         <part Name="QuestHandler" QuestID="Catch a Mucarp for Kreek" Action="Complete" />
       </choice>
       <choice GotoID="WhereMucarp">How do I catch mucarp?</choice>
@@ -22,13 +56,34 @@
 &amp;yYougivingsme! Thankayou! She will leapingsbe. Happenyings! 
 
  &amp;wShe seems to struggle to find the words to thank you.</text>
-      <choice GotoID="End">Live and drink, =pronouns.formalAddressTerm=.</choice>
+      <choice GotoID="Part2Prompt">Live and drink, =pronouns.formalAddressTerm=.</choice>
     </node>
 
     <node ID="WhereMucarp">
       <text>Mucarp plentysbe, but slippybe. Graba rod, wait, pullbig. &amp;wShe nods sagely, satisfied with her advice.</text>
       <choice GotoID="End">Live and drink, =pronouns.formalAddressTerm=.</choice>
     </node>
+
+    <node ID="Part2Prompt">
+      <text>Ahe, friemdfisher! Amoment, waitingsbe.
+      
+      New thought, havingbe. Slimyfish be great treasure. Butwhat if... alsogivings crunchcoral surprise? 
+      </text>
+      <choice GotoID="AskCoral">A... what?</choice>
+      <choice GotoID="End">Not interested. Live and drink, =pronouns.formalAddressTerm=.</choice>
+    </node>
+
+    <node ID="AskCoral">
+      <text>&amp;w*grrk.*
+        
+&amp;WC&amp;Mo&amp;Cr&amp;Yroca&amp;Wn&amp;Md&amp;Cu&amp;Ys&amp;y, be thinkings. Crunchcoral, but betterbe. With bothgivings, Krka hopping happyhavingsbe!
+      </text>
+      <choice GotoID="End" StartQuest="Catch a Corrocandus for Kreek">I'll catch a corrocandus for you.</choice>
+      <choice GotoID="End">Not interested. Live and drink.</choice>
+    </node>
+
+
+    <!-- STARTING CONVO  -->
 
     <node ID="Start">
       <text>&amp;w*gwrrp!*
