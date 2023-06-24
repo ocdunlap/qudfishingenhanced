@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using XRL;
 using XRL.World.QuestManagers;
 using XRL.World.Parts;
 using XRL.World;
@@ -8,44 +9,54 @@ using XRL.World;
 namespace XRL.World.QuestManagers
 {
     [Serializable]
-    class BringKreekMucarp : QuestManager
+    public class QodEnhanced_BringKreekMucarp : QuestManager
     {
-        public override void OnQuestAdded()
+
+        public class QodEnhanced_BringKreekMucarpSystem : IGameSystem
         {
-            Inventory pInventory = XRL.Core.XRLCore.Core.Game.Player.Body.GetPart("Inventory") as Inventory;
- 
-            foreach (GameObject GO in pInventory.GetObjects())
+            public override void PlayerTook(GameObject GO)
             {
-                if (GO.HasPart("Mucarp"))
+                 if( GO != null && GO.Blueprint == "Mucarp" )
                 {
-                    // Could potentially check for the carp's size, etc here before completing step
                     XRL.Core.XRLCore.Core.Game.FinishQuestStep("Catch a Mucarp for Kreek", "Catch a Mucarp");
                 }
             }
+        }
+        public override void OnQuestAdded()
+        {
+            The.Player.Inventory.ForeachObject(delegate(GameObject GO)
+            {
+                 if( GO != null && GO.Blueprint == "Mucarp" )
+                {
+                    // Could potentially check for the carp's size, etc here before completing step
+                    XRL.Core.XRLCore.Core.Game.FinishQuestStep("Catch a Mucarp for Kreek", "Catch a Mucarp");
+                    return false;
+                }
+                return true;
+            });
  
-            // this.Name = "QMQodEnhanced_BringKreekMucarp";
-            XRL.Core.XRLCore.Core.Game.Player.Body.AddPart(this);
-            XRL.Core.XRLCore.Core.Game.Player.Body.RegisterPartEvent(this, "Took");
+            The.Game.AddSystem(new QodEnhanced_BringKreekMucarpSystem());
         }
  
         public override void OnQuestComplete()
         {
-            XRL.Core.XRLCore.Core.Game.Player.Body.RemovePart(this);
+            IComponent<GameObject>.ThePlayer.RemovePart(this);
+		    The.Game.FlagSystemsForRemoval(typeof(QodEnhanced_BringKreekMucarpSystem));
         }
  
         public override bool FireEvent(Event E)
         {
             if (E.ID == "Took")
             {
-                GameObject GO = E.GetParameter("Object") as GameObject;
-                if (GO.HasPart("Mucarp"))
+                GameObject GO = E.GetGameObjectParameter("Object");
+                if(GO != null && GO.Blueprint == "Mucarp" )
                 {
                     // Could potentially check for the carp's size, etc here before completing step
                     XRL.Core.XRLCore.Core.Game.FinishQuestStep("Catch a Mucarp for Kreek", "Catch a Mucarp");
                 }
             }
  
-            return true;
+            return base.FireEvent(E);
         }
     }
 }

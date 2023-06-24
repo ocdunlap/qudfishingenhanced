@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <quests>
-  <quest Name="Catch a Mucarp for Kreek" Level="3"
+  <quest Name="Catch a Mucarp for Kreek" Level="3" Manager="QodEnhanced_BringKreekMucarp" 
        Accomplishment="You caught a mucarp for Kreek."
        Hagiograph="=name= acquired a slimy gift for a lovesick svardym."
        HagiographCategory="Trysts">
