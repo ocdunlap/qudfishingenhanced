@@ -33,12 +33,19 @@
     <tag Name="ExcludeFromDynamicEncounters" Value="*noinherit" />
   </object>
 
-  <object Name="KreekRod" Inherits="FishingRod">
-    <part Name="Render" DisplayName="{{m-g-G-Y-G-g-m alternation|Kreek's Rod}}" Tile="items/fishingrod.png" TileColor="&amp;G" DetailColor="m" ColorString="&amp;w"></part>
-    <part Name="Description" Short="A well-loved but sturdy pole, which is easy to grip and has a line that never seems to tangle.
+  <object Name="KreekRod" Inherits="MeleeWeapon">
+    <part Name="Render" DisplayName="{{m-g-G-y-G-g-m alternation|Kreek's Rod}}" Tile="items/fishingrod.png" TileColor="&amp;g" DetailColor="y" ColorString="&amp;w"></part>
+    <part Name="Description" Short="A well-loved but sturdy pole, which is easy to grip and has a line that never seems to tangle. A vicious hook dangles menacingly. It exudes hope and anxiety.
 
 &amp;K[Interact with a pool of water to fish.]"></part>
-    <part Name="Commerce" Value="200"></part>
+    <tag Name="FishingRod" />
+    <part Name="Commerce" Value="300"></part>
     <part Name="AddsRep" Faction="Svardym" Value="300" />
+    <part Name="MeleeWeapon" MaxStrengthBonus="6" BaseDamage="2d6" Skill="Whip"  />
+    <part Name="Physics" Weight="3" />
+    <part Name="ModMasterwork" />
+    <part Name="LatchesOn" InitialSaveTarget="20" InitialSaveStat="Agility" InitialSaveDifficultyStat="Agility" MoveSaveTarget="20" MoveSaveStat="Strength" MoveSaveDifficultyStat="Strength" BreakSaveTarget="20" BreakSaveStat="Strength" BreakSaveDifficultyStat="Strength" Duration="3d4" AutoAttackOnMove="false" AutoAttackOnMoveAway="false" AutoAttackPerTurn="true" BloodSpatterOnLatch="true" />
+    <tag Name="Tier" Value="6" />
+    <tag Name="NoSparkingQuest" />
   </object>
 </objects>

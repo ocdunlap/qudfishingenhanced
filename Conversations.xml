@@ -5,29 +5,29 @@
   <!-- KREEK QUEST PART 3  -->
 
   
-    <start IfHaveActiveQuest="Catch a rare Fish for Kreek">
+    <start IfHaveActiveQuest="Catch a Rare Fish for Kreek">
       <text>
         Friemd again! Findinggiving perfectfish for she?
       </text>
       <!-- doing these separately rather than as a list so that it doesn't take more than one if the player has multiple rare fish -->
       <choice GotoID="HasRare" IfHaveBlueprint="Hurwobble_Slice" TakeItem="Hurwobble_Slice">
         <text>Yes, here is some hurwobble.</text>
-        <!-- <part Name="ReceiveItem" Blueprints="Laser Rifle" /> -->
+        <part Name="ReceiveItem" Blueprints="Chain Pistol" />
         <part Name="QuestHandler" QuestID="Catch a Rare Fish for Kreek" Action="Complete" />
       </choice>
       <choice GotoID="HasRare" IfHaveBlueprint="FatSack" TakeItem="FatSack">
-        <text>Yes, here is some FatSack.</text>
-        <!-- <part Name="ReceiveItem" Blueprints="Laser Rifle" /> -->
+        <text>Yes, here is some fatsack.</text>
+        <part Name="ReceiveItem" Mods="2" Blueprints="StasisGrenade3, StasisGrenade3, ColdGrenade3, ColdGrenade3" />
         <part Name="QuestHandler" QuestID="Catch a Rare Fish for Kreek" Action="Complete" />
       </choice>
       <choice GotoID="HasRare" IfHaveBlueprint="Burlio" TakeItem="Burlio">
-        <text>Yes, here is a Burlio.</text>
-        <!-- <part Name="ReceiveItem" Blueprints="Laser Rifle" /> -->
+        <text>Yes, here is a burlio.</text>
+        <part Name="ReceiveItem" Blueprints="SkinGlitter2, TibularHydrojets" />
         <part Name="QuestHandler" QuestID="Catch a Rare Fish for Kreek" Action="Complete" />
       </choice>
        <choice GotoID="HasRare" IfHaveBlueprint="Slither" TakeItem="Slither">
-        <text>Yes, here is a Slither.</text>
-        <!-- <part Name="ReceiveItem" Blueprints="Laser Rifle" /> -->
+        <text>Yes, here is a slither.</text>
+        <part Name="ReceiveItem" Blueprints="Ninefold Boots" />
         <part Name="QuestHandler" QuestID="Catch a Rare Fish for Kreek" Action="Complete" />
       </choice>
       <choice GotoID="WhereRare">How do I catch a rare fish?</choice>
@@ -37,10 +37,13 @@
     <node ID="HasRare">
       <text>&amp;w*geep, grrk!*
         
-&amp;yAyeh! Ayeee! Perfectfish betterbe than I imagining! Hopingsbe of Krka... she talkingly difficulties, notbe like Kreek. With giftsgivings, shebe know of my lovings. 
+&amp;yAyeh! Ayeee! Perfectfish betterbe than I imagining! Hopingsbe of Krka... she talkingly difficulties, notbe like Kreek. With giftsgivings, shebe know of my lovings. I givings you treasures.
 
-&amp;yHavings another Kreeksgift, fisherfriend. Will notbe forgettings.</text>
-      <choice GotoID="End">Live and drink, =pronouns.formalAddressTerm=.</choice>
+&amp;yHavings another Kreeksgift, fisherfriend. Will notbe forgettings. Yoube exceeding in fishingskill. Havings my trustyrod. </text>
+      <choice GotoID="End">
+        <part Name="ReceiveItem" Blueprints="KreekRod" />
+        <text> Live and drink, =pronouns.formalAddressTerm=. </text>
+      </choice>
     </node>
 
     <node ID="WhereRare">
@@ -66,7 +69,7 @@ If perfectfish too bigbe, portionslice will happyhavingsbe for me. &amp;w*chrrk.
       </text>
       <choice GotoID="HasCorrocandus" IfHaveBlueprint="Corrocandus" TakeItem="Corrocandus">
         <text>Yes, here it is.</text>
-        <part Name="ReceiveItem" Blueprints="Laser Rifle" />
+        <part Name="ReceiveItem" Blueprints="UbernostrumTonic" />
         <part Name="QuestHandler" QuestID="Catch a Corrocandus for Kreek" Action="Complete" />
       </choice>
       <choice GotoID="WhereCorrocandus">How do I catch corrocandus?</choice>
@@ -79,7 +82,7 @@ If perfectfish too bigbe, portionslice will happyhavingsbe for me. &amp;w*chrrk.
 &amp;yLovelygives! Is bigcrunchy, colorshape. Ayeh!
 
  &amp;wShe does a happy hop in place, her pack jingling. &amp;yBe givings to fisherfriend, athankayou.</text>
-      <choice GotoID="End">Live and drink, =pronouns.formalAddressTerm=.</choice>
+      <choice GotoID="Part3Prompt">Live and drink, =pronouns.formalAddressTerm=.</choice>
     </node>
 
     <node ID="WhereCorrocandus">
@@ -94,6 +97,22 @@ If perfectfish too bigbe, portionslice will happyhavingsbe for me. &amp;w*chrrk.
       <choice GotoID="End" StartQuest="Catch a Corrocandus for Kreek">I'll catch a corrocandus for you.</choice>
       <choice GotoID="End">Not interested. Live and drink.</choice>
     </start>
+
+    <node ID="Part2Prompt">
+      <text>Unless?
+      
+      New thought, again havingbe. Anyhop be bringings mucarp, corrocandus. What ifbe.. perfectfish. Specialfish? Krka be perfectsvardy for Kreek. Must finding perfectfish!
+      </text>
+      <choice GotoID="AskPerfect">A... what?</choice>
+      <choice GotoID="End">Not interested. Live and drink, =pronouns.formalAddressTerm=.</choice>
+    </node>
+
+    <node ID="AskPerfect">
+      <text>Rarefish. Any will do. {{w|*krrek*.}}
+      </text>
+      <choice GotoID="End" StartQuest="Catch a Rare Fish for Kreek">I'll catch a rare fish for you.</choice>
+      <choice GotoID="End">Not interested. Live and drink.</choice>
+    </node>
 
 
     <!-- KREEK QUEST PART 1  -->

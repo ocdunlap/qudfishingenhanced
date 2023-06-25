@@ -112,6 +112,7 @@ namespace XRL.World.QuestManagers
         }
     }
 
+    [Serializable]
     public class QodEnhanced_BringKreekRareFish : QuestManager
     {
 
