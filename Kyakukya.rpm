@@ -3,8 +3,13 @@
   Width="80"
   Height="25" Load="Merge">
   <cell
-    X="42"
-    Y="6">
+    X="60"
+    Y="13">
     <object Name="QODENHANCED_Kreek"></object>
+  </cell>
+  <cell
+    X="61"
+    Y="13">
+    <object Name="Woven Basket"></object>
   </cell>
 </Map>
