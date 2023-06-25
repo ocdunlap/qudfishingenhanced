@@ -111,4 +111,55 @@ namespace XRL.World.QuestManagers
             return base.FireEvent(E);
         }
     }
+
+    public class QodEnhanced_BringKreekRareFish : QuestManager
+    {
+
+        public class QodEnhanced_BringKreekRareFishSystem : IGameSystem
+        {
+            public override void PlayerTook(GameObject GO)
+            {
+                 if( GO != null && GO.HasTag("EpicFish") )
+                {
+                    XRL.Core.XRLCore.Core.Game.FinishQuestStep("Catch a Rare Fish for Kreek", "Catch a Rare Fish");
+                }
+            }
+        }
+        public override void OnQuestAdded()
+        {
+            The.Player.Inventory.ForeachObject(delegate(GameObject GO)
+            {
+                 if( GO != null && GO.HasTag("EpicFish") )
+                {
+                    // Could potentially check for the carp's size, etc here before completing step
+                    XRL.Core.XRLCore.Core.Game.FinishQuestStep("Catch a Rare Fish for Kreek", "Catch a Rare Fish");
+                    return false;
+                }
+                return true;
+            });
+ 
+            The.Game.AddSystem(new QodEnhanced_BringKreekRareFishSystem());
+        }
+ 
+        public override void OnQuestComplete()
+        {
+            IComponent<GameObject>.ThePlayer.RemovePart(this);
+		    The.Game.FlagSystemsForRemoval(typeof(QodEnhanced_BringKreekRareFishSystem));
+        }
+ 
+        public override bool FireEvent(Event E)
+        {
+            if (E.ID == "Took")
+            {
+                GameObject GO = E.GetGameObjectParameter("Object");
+                if(GO != null && GO.HasTag("EpicFish"))
+                {
+                    // Could potentially check for the carp's size, etc here before completing step
+                    XRL.Core.XRLCore.Core.Game.FinishQuestStep("Catch a Rare Fish for Kreek", "Catch a Rare Fish");
+                }
+            }
+ 
+            return base.FireEvent(E);
+        }
+    }
 }

@@ -10,8 +10,9 @@
     <part Name="ConversationScript" ConversationID="QODENHANCED_Kreek" />
     <part Name="GameUnique" DeathState="QODENHANCED_KreekKilled" />
     <stat Name="Intelligence" Value="18" />
-    <stat Name="Willpower" Value="22" />
+    <stat Name="Willpower" Value="24" />
     <stat Name="Ego" Value="16" />
+    <stat Name="Agility" Value="24" />
     <stat Name="Level" Value="25" />
     <skill Name="CookingAndGathering_Harvestry" />
     <skill Name="CookingAndGathering_Spicer" />
@@ -30,5 +31,14 @@
     <tag Name="NoSleep" />
     <xtagGrammar Proper="true" />
     <tag Name="ExcludeFromDynamicEncounters" Value="*noinherit" />
+  </object>
+
+  <object Name="KreekRod" Inherits="FishingRod">
+    <part Name="Render" DisplayName="{{m-g-G-Y-G-g-m alternation|Kreek's Rod}}" Tile="items/fishingrod.png" TileColor="&amp;G" DetailColor="m" ColorString="&amp;w"></part>
+    <part Name="Description" Short="A well-loved but sturdy pole, which is easy to grip and has a line that never seems to tangle.
+
+&amp;K[Interact with a pool of water to fish.]"></part>
+    <part Name="Commerce" Value="200"></part>
+    <part Name="AddsRep" Faction="Svardym" Value="300" />
   </object>
 </objects>

@@ -2,6 +2,64 @@
 <conversations>
   <conversation ID="QODENHANCED_Kreek">
 
+  <!-- KREEK QUEST PART 3  -->
+
+  
+    <start IfHaveActiveQuest="Catch a rare Fish for Kreek">
+      <text>
+        Friemd again! Findinggiving perfectfish for she?
+      </text>
+      <!-- doing these separately rather than as a list so that it doesn't take more than one if the player has multiple rare fish -->
+      <choice GotoID="HasRare" IfHaveBlueprint="Hurwobble_Slice" TakeItem="Hurwobble_Slice">
+        <text>Yes, here is some hurwobble.</text>
+        <!-- <part Name="ReceiveItem" Blueprints="Laser Rifle" /> -->
+        <part Name="QuestHandler" QuestID="Catch a Rare Fish for Kreek" Action="Complete" />
+      </choice>
+      <choice GotoID="HasRare" IfHaveBlueprint="FatSack" TakeItem="FatSack">
+        <text>Yes, here is some FatSack.</text>
+        <!-- <part Name="ReceiveItem" Blueprints="Laser Rifle" /> -->
+        <part Name="QuestHandler" QuestID="Catch a Rare Fish for Kreek" Action="Complete" />
+      </choice>
+      <choice GotoID="HasRare" IfHaveBlueprint="Burlio" TakeItem="Burlio">
+        <text>Yes, here is a Burlio.</text>
+        <!-- <part Name="ReceiveItem" Blueprints="Laser Rifle" /> -->
+        <part Name="QuestHandler" QuestID="Catch a Rare Fish for Kreek" Action="Complete" />
+      </choice>
+       <choice GotoID="HasRare" IfHaveBlueprint="Slither" TakeItem="Slither">
+        <text>Yes, here is a Slither.</text>
+        <!-- <part Name="ReceiveItem" Blueprints="Laser Rifle" /> -->
+        <part Name="QuestHandler" QuestID="Catch a Rare Fish for Kreek" Action="Complete" />
+      </choice>
+      <choice GotoID="WhereRare">How do I catch a rare fish?</choice>
+      <choice GotoID="End">Not yet.</choice>
+    </start>
+
+    <node ID="HasRare">
+      <text>&amp;w*geep, grrk!*
+        
+&amp;yAyeh! Ayeee! Perfectfish betterbe than I imagining! Hopingsbe of Krka... she talkingly difficulties, notbe like Kreek. With giftsgivings, shebe know of my lovings. 
+
+&amp;yHavings another Kreeksgift, fisherfriend. Will notbe forgettings.</text>
+      <choice GotoID="End">Live and drink, =pronouns.formalAddressTerm=.</choice>
+    </node>
+
+    <node ID="WhereRare">
+      <text>Beknowings talkingtales only. Some perfectfish angrybe fightingback! Kreek may expert fisherbe, fighting notso. 
+      
+If perfectfish too bigbe, portionslice will happyhavingsbe for me. &amp;w*chrrk.*</text>
+      <choice GotoID="End">Live and drink, =pronouns.formalAddressTerm=.</choice>
+    </node>
+
+    <start IfFinishedQuest="Catch a Corrocandus for Kreek" IfNotHaveQuest="Catch a Rare Fish for Kreek">
+      <text>
+        Friemdfisher! Searchbe of failings for rarebe perfectfish. Rethinkings help, yoube?
+      </text>
+      <choice GotoID="End" StartQuest="Catch a Rare Fish for Kreek">I'll catch a rare fish for you.</choice>
+      <choice GotoID="End">Not interested. Live and drink.</choice>
+    </start>
+
+  <!-- KREEK QUEST PART 2  -->
+
     <start IfHaveActiveQuest="Catch a Corrocandus for Kreek">
       <text>
         Friemd returings! Corrocandus for Krka, givingsbe?
@@ -15,7 +73,7 @@
       <choice GotoID="End">Not yet.</choice>
     </start>
 
-        <node ID="HasCorrocandus">
+    <node ID="HasCorrocandus">
       <text>&amp;w*gwrree!*
         
 &amp;yLovelygives! Is bigcrunchy, colorshape. Ayeh!
@@ -29,13 +87,16 @@
       <choice GotoID="End">Live and drink, =pronouns.formalAddressTerm=.</choice>
     </node>
 
-    <start IfFinishedQuest="Catch a Mucarp for Kreek" IfNotHaveActiveQuest="Catch a Corrocandus for Kreek">
+    <start IfFinishedQuest="Catch a Mucarp for Kreek" IfNotHaveQuest="Catch a Corrocandus for Kreek">
       <text>
         Friemdfisher! Searchbe of failings for corrocandus. Rethinkings help, yoube?
       </text>
       <choice GotoID="End" StartQuest="Catch a Corrocandus for Kreek">I'll catch a corrocandus for you.</choice>
       <choice GotoID="End">Not interested. Live and drink.</choice>
     </start>
+
+
+    <!-- KREEK QUEST PART 1  -->
 
     <start IfHaveActiveQuest="Catch a Mucarp for Kreek">
       <text>
@@ -83,7 +144,7 @@
     </node>
 
 
-    <!-- STARTING CONVO  -->
+    <!-- KREEK INTRO CONVO  -->
 
     <node ID="Start">
       <text>&amp;w*gwrrp!*

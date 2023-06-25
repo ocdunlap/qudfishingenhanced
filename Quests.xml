@@ -23,7 +23,7 @@
       <text>Catch a corrocandus. A colorful curiosity.</text>
     </step>
 
-    <step Name="Return to Kreek" XP="1200">
+    <step Name="Return to Kreek" XP="1400">
       <text>Return to Kreek with your catch.</text>
     </step>
     </quest>
